@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button[type="submit"], button[type="button"] {
+            padding: 10px 20px;
+            margin-bottom: 10px; /* Added margin for spacing */
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block; /* Ensure button is displayed inline */
+        }
+        button[type="submit"]:hover, button[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Recommendation System</h1>
+    <form action="/" method="post">
+        <label for="input_book">Enter a book:</label><br>
+        <input type="text" id="input_book" name="input_book" required><br>
+        <button type="submit">Get Recommendations</button>
+        <button type="button" onclick="window.location.href='http://localhost:3000/books'">Go to Books</button> <!-- Added button -->
+    </form>
+    <hr>
+    {% if recommended_books %}
+        <h2>Recommended Books:</h2>
+        <ul>
+            {% for book in recommended_books %}
+                <li>{{ book }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
+
